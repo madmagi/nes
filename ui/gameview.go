@@ -3,9 +3,9 @@ package ui
 import (
 	"image"
 
-	"github.com/fogleman/nes/nes"
 	"github.com/go-gl/gl/v2.1/gl"
 	"github.com/go-gl/glfw/v3.1/glfw"
+	"github.com/nes/nes"
 )
 
 const padding = 0
@@ -28,8 +28,8 @@ func NewGameView(director *Director, console *nes.Console, title, hash string) V
 func (view *GameView) Enter() {
 	gl.ClearColor(0, 0, 0, 1)
 	view.director.SetTitle(view.title)
-	view.console.SetAudioChannel(view.director.audio.channel)
-	view.console.SetAudioSampleRate(view.director.audio.sampleRate)
+	//view.console.SetAudioChannel(view.director.audio.channel)
+	//view.console.SetAudioSampleRate(view.director.audio.sampleRate)
 	view.director.window.SetKeyCallback(view.onKey)
 	// load state
 	if err := view.console.LoadState(savePath(view.hash)); err == nil {

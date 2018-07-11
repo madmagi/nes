@@ -3,9 +3,9 @@ package ui
 import (
 	"log"
 
-	"github.com/fogleman/nes/nes"
 	"github.com/go-gl/gl/v2.1/gl"
 	"github.com/go-gl/glfw/v3.1/glfw"
+	"github.com/nes/nes"
 )
 
 type View interface {
@@ -15,17 +15,17 @@ type View interface {
 }
 
 type Director struct {
-	window    *glfw.Window
-	audio     *Audio
+	window *glfw.Window
+	//	audio     *Audio
 	view      View
 	menuView  View
 	timestamp float64
 }
 
-func NewDirector(window *glfw.Window, audio *Audio) *Director {
+func NewDirector(window *glfw.Window) *Director {
 	director := Director{}
 	director.window = window
-	director.audio = audio
+	//	director.audio = audio
 	return &director
 }
 
